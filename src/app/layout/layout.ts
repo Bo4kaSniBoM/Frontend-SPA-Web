@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './layout.html',
   styleUrls: ['./layout.css']
 })
-export class LayoutComponent {
+export class Layout {
   appTitle: string = 'Програмування';
 }

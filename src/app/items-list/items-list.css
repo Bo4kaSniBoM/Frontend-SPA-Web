@@ -2,6 +2,8 @@
   display: block;
   width: 100%;
   padding: 20px;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .list-wrapper {

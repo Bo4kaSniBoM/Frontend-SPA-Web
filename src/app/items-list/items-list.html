@@ -1,13 +1,8 @@
 <div class="container">
-  <h2>Список мов програмування</h2>
-
-  <div class="list-wrapper">
+  <h2>Популярні мови програмування</h2>
+  <div class="grid">
     @for (lang of languages; track lang.id) {
-      <div class="simple-card">
-        <h3>{{ lang.name }}</h3>
-        <p>{{ lang.description }}</p>
-        <p>Рейтинг: {{ lang.rating }}</p>
-      </div>
+      <app-item-card [language]="lang"></app-item-card>
     }
   </div>
 </div>

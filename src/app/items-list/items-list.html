@@ -1,15 +1,13 @@
 <div class="container">
-  <h2>Каталог мов програмування</h2>
+  <h2>Список мов програмування</h2>
+
   <div class="list-wrapper">
-    @for (item of languages; track item.id) {
-      <div class="temp-card">
-        <h3>{{ item.name }}</h3>
-        <p class="desc">{{ item.description }}</p>
-        <div class="rating">Рейтинг: <strong>{{ item.rating }}/10</strong></div>
+    @for (lang of languages; track lang.id) {
+      <div class="simple-card">
+        <h3>{{ lang.name }}</h3>
+        <p>{{ lang.description }}</p>
+        <p>Рейтинг: {{ lang.rating }}</p>
       </div>
-    }
-    @empty {
-      <p>Список порожній</p>
     }
   </div>
 </div>

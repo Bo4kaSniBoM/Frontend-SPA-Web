@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ProgrammingLanguage } from '../core/models/programming-language';
-import { ItemCard } from '../item-card/item-card';
 
 @Component({
   selector: 'app-items-list',
-  imports: [ItemCard],
+  imports: [],
   templateUrl: './items-list.html',
   styleUrl: './items-list.css',
 })

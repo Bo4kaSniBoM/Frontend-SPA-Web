@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProgrammingLanguage } from '../core/models/programming-language';
 import {ItemCard} from '../item-card/item-card';
 

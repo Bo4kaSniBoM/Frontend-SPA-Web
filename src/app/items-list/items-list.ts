@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ProgrammingLanguage } from '../core/models/programming-language';
 
 @Component({
   selector: 'app-items-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './items-list.html',
   styleUrl: './items-list.css',
 })
@@ -82,4 +83,10 @@ export class ItemsList {
       categories: ['System', 'GameDev', 'Hardcore']
     }
   ];
+
+  getRatingColor(rating: number): string {
+    if (rating >= 9) return '#2ecc71';
+    if (rating >= 6) return '#f1c40f';
+    return '#95a5a6';
+  }
 }

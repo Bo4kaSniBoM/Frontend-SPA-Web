@@ -83,10 +83,4 @@ export class ItemsList {
       categories: ['System', 'GameDev', 'Hardcore']
     }
   ];
-
-  getRatingColor(rating: number): string {
-    if (rating >= 9) return '#2ecc71';
-    if (rating >= 6) return '#f1c40f';
-    return '#95a5a6';
-  }
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProgrammingLanguage } from '../core/models/programming-language';
+import {ItemCard} from '../item-card/item-card';
 
 @Component({
   selector: 'app-items-list',
-  imports: [CommonModule],
+  imports: [CommonModule,ItemCard],
   templateUrl: './items-list.html',
   styleUrl: './items-list.css',
 })

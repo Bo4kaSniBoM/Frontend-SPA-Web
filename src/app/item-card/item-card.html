@@ -1,0 +1,24 @@
+<div class="card"
+     [ngClass]="{
+       'theme-green': language.popularity > 9,
+       'theme-yellow': language.popularity > 6 && language.popularity <= 9
+     }">
+  <div class="image-wrapper">
+    <img [src]="language.image" [alt]="language.name">
+    @if (language.popularity === 10) {
+      <span class="top-badge">TOP</span>
+    }
+  </div>
+  <div class="content">
+    <h3>{{ language.name }}</h3>
+    <p class="rating-text">
+      Рейтинг: <span class="rating-number">{{ language.popularity }}</span>
+    </p>
+    <p class="desc">{{ language.description }}</p>
+    <div class="tags">
+      @for (cat of language.categories; track cat) {
+        <span class="tag">{{ cat }}</span>
+      }
+    </div>
+  </div>
+</div>

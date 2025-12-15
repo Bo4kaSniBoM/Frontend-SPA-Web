@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter} from '@angular/core';
 import {ProgrammingLanguage} from '../core/models/programming-language';
 import {CommonModule} from '@angular/common';
 
@@ -10,4 +10,9 @@ import {CommonModule} from '@angular/common';
 })
 export class ItemCard {
   @Input() language!: ProgrammingLanguage;
+  @Output() selected = new EventEmitter<ProgrammingLanguage>();
+
+  onDetailsClick(): void {
+    this.selected.emit(this.language);
+  }
 }

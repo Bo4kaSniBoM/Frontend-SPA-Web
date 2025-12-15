@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { ProgrammingLanguage } from '../core/models/programming-language';
 import {ItemCard} from '../item-card/item-card';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-items-list',
-  imports: [CommonModule,ItemCard],
+  imports: [CommonModule,ItemCard,FormsModule],
   templateUrl: './items-list.html',
   styleUrl: './items-list.css',
 })
 export class ItemsList {
+  searchTerm: string = '';
   languages: ProgrammingLanguage[] = [
     {
       id: 1,
@@ -83,4 +86,16 @@ export class ItemsList {
       categories: ['System', 'GameDev', 'Hardcore']
     }
   ];
+  onLanguageSelected(lang: ProgrammingLanguage): void {
+    console.log('Обрано елемент:', lang);
+    console.log(`Назва: ${lang.name}, Популярність: ${lang.popularity}`);
+  }
+  get filteredLanguages(): ProgrammingLanguage[] {
+    if (!this.searchTerm.trim()) {
+      return this.languages;
+    }
+    return this.languages.filter(lang =>
+      lang.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }

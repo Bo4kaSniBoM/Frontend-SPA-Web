@@ -1,10 +1,24 @@
 <div class="container">
-  <h2>Мови програмування</h2>
+  <h2>Список мов програмування</h2>
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Введіть назву..."
+      class="search-input"
+      [(ngModel)]="searchTerm">
+  </div>
   <div class="grid">
-    @for (lang of languages; track lang.id) {
-      <app-item-card [language]="lang"></app-item-card>
-    } @empty {
-      <p>Список порожній</p>
+    @if (filteredLanguages.length > 0) {
+      @for (lang of filteredLanguages; track lang.id) {
+        <app-item-card
+          [language]="lang"
+          (selected)="onLanguageSelected($event)">
+        </app-item-card>
+      }
+    } @else {
+      <div class="no-results">
+        <p>На жаль, за запитом "<strong>{{ searchTerm }}</strong>" нічого не знайдено.</p>
+      </div>
     }
   </div>
 </div>

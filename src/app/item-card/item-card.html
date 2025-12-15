@@ -10,7 +10,10 @@
     }
   </div>
   <div class="content">
-    <h3>{{ language.name }}</h3>
+    <div class="card-header">
+      <h3 class="title">{{ language.name }}</h3>
+      <button class="btn-details" (click)="onDetailsClick()">Детальніше</button>
+    </div>
     <p class="rating-text">
       Рейтинг: <span class="rating-number">{{ language.popularity }}</span>
     </p>

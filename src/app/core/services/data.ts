@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {Observable,BehaviorSubject,of} from 'rxjs';
 import {ProgrammingLanguage} from '../models/programming-language';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Data {
-  private languages: ProgrammingLanguage[] = [
+  private allLanguages: ProgrammingLanguage[] = [
     {
       id: 1,
       name: 'JavaScript',
@@ -79,8 +80,20 @@ export class Data {
       categories: ['System', 'GameDev', 'Hardcore']
     }
     ];
+  private languagesSubject = new BehaviorSubject<ProgrammingLanguage[]>(this.allLanguages);
+  public languagesPub = this.languagesSubject.asObservable();
   constructor() { }
-  getItems(): ProgrammingLanguage[] {
-    return this.languages;
+  getItems(): Observable<ProgrammingLanguage[]> {
+    return of(this.allLanguages);
+  }
+  setLanguages(data: ProgrammingLanguage[]): void {
+    this.languagesSubject.next(data);
+  }
+  updateSearch(term: string): void {
+    const lowerTerm = term.trim().toLowerCase();
+    const filtered = this.allLanguages.filter(lang =>
+      lang.name.toLowerCase().includes(lowerTerm)
+    );
+    this.languagesSubject.next(filtered);
   }
 }

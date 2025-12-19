@@ -5,11 +5,12 @@
       type="text"
       placeholder="Введіть назву..."
       class="search-input"
-      [(ngModel)]="searchTerm">
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()">
   </div>
   <div class="grid">
-    @if (filteredLanguages.length > 0) {
-      @for (lang of filteredLanguages; track lang.id) {
+    @if (languages.length > 0) {
+      @for (lang of languages; track lang.id) {
         <app-item-card
           [language]="lang"
           (selected)="onLanguageSelected($event)">

@@ -12,7 +12,8 @@
   <div class="content">
     <div class="card-header">
       <h3 class="title">{{ language.name }}</h3>
-      <button class="btn-details" (click)="onDetailsClick()">Детальніше</button>
+      <a [routerLink]="['/items', language.id]" class="btn-details">
+        Детальніше </a>
     </div>
     <p class="rating-text">
       Рейтинг: <span class="rating-number">{{ language.popularity }}</span>

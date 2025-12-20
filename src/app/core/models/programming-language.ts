@@ -5,4 +5,7 @@ export interface ProgrammingLanguage {
   popularity: number;
   image: string;
   categories: string[];
+  creator?: string;
+  year?: number;
+  history?: string;
 }
